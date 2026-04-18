@@ -19,7 +19,10 @@ const app = express();
 connectDB();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL || "*", // Uses FRONTEND_URL if set, otherwise allows all origins
+  credentials: true
+}));
 app.use(express.json());
 app.use("/uploads", express.static("uploads")); // Serve profile pictures
 
