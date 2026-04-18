@@ -18,14 +18,12 @@ import LearnMore from "./pages/LearnMore";
 import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(() => {
+    const token = localStorage.getItem("token");
+    return token ? { token } : null;
+  });
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) setUser({ token });
-  }, []);
 
   const handleLogin = (userData) => {
     setUser(userData);
