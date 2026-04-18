@@ -16,8 +16,13 @@ const transporter = nodemailer.createTransport({
  * @param {string} text - Email body (plain text)
  * @returns {Promise} - Resolves with info on success, throws on error
  */
-const sendEmail = async (to, subject, text) => {
+  const sendEmail = async (to, subject, text) => {
   try {
+    if (!process.env.EMAIL_USER) {
+      console.log(`[MOCK EMAIL to ${to}] Subject: ${subject} | Text: ${text}`);
+      return { messageId: "mock-id" };
+    }
+
     const mailOptions = {
       from: `"Carbon Tracker" <${process.env.EMAIL_USER}>`,
       to,

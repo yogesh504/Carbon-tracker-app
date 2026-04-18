@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Environment and secrets (keep **/.env.example tracked)
+Carbon-backend/.env
+Carbon-frontend/.env
+Carbon-frontend/.env.local
+Carbon-frontend/.env.production.local
+Carbon-frontend/.env.development.local
+
+# Build output
+Carbon-frontend/dist
+dist/
+
+# Logs and OS
+*.log
+.DS_Store
+Thumbs.db
+
+# User uploads (ephemeral in cloud; do not commit user files)
+Carbon-backend/uploads/*
+!Carbon-backend/uploads/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp

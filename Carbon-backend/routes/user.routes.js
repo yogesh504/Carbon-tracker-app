@@ -48,7 +48,7 @@ router.get("/achievements", verifyToken, async (req, res) => {
   try {
     const userId = req.user.id;
     const user = await User.findById(userId);
-    const activities = await Activity.find({ userId });
+    const activities = await Activity.find({ user: userId });
 
     const achievements = [];
     const now = new Date();

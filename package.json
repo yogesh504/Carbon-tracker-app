@@ -1,0 +1,9 @@
+{
+  "name": "carbon-tracker",
+  "version": "1.0.0",
+  "description": "Deployment configuration for Carbon Tracker App",
+  "scripts": {
+    "start": "node Carbon-backend/server.js",
+    "build": "npm install --prefix Carbon-frontend && npm run build --prefix Carbon-frontend && npm install --prefix Carbon-backend"
+  }
+}
